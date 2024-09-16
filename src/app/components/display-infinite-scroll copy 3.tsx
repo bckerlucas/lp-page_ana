@@ -14,12 +14,13 @@ interface DisplayInfiniteScrollProps {
 }
 
 const DisplayInfiniteScroll = ({ items }: DisplayInfiniteScrollProps) => {
-  const [displayItems, setDisplayItems] = useState<DisplayItem[]>([]);
-  const [itemsToShow, setItemsToShow] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [displayItems, setDisplayItems] = useState<DisplayItem[]>([]); // Itens exibidos no carrossel
+  const [itemsToShow, setItemsToShow] = useState(3); // Número de itens visíveis
+  const [isTransitioning, setIsTransitioning] = useState(false); // Estado de transição
   const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Função para atualizar o número de itens com base na largura da janela
     const updateItemsToShow = () => {
       if (window.innerWidth <= 768) {
         setItemsToShow(1);
@@ -31,15 +32,11 @@ const DisplayInfiniteScroll = ({ items }: DisplayInfiniteScrollProps) => {
     window.addEventListener("resize", updateItemsToShow);
     updateItemsToShow();
 
-    if (items && items.length > 0) {
-      setDisplayItems([
-        items[items.length - 1], // Clona o último item no início
-        ...items.slice(0, itemsToShow + 1),
-      ]);
-      if (carouselRef.current) {
-        carouselRef.current.style.width = `${(itemsToShow + 1) * 100}%`;
-      }
-    }
+    // Inicializar displayItems com a sequência de itens + 1 adicional
+    setDisplayItems([
+      ...items.slice(0, itemsToShow),
+      items[itemsToShow % items.length], // Adiciona um item extra no final
+    ]);
 
     return () => {
       window.removeEventListener("resize", updateItemsToShow);
@@ -51,19 +48,19 @@ const DisplayInfiniteScroll = ({ items }: DisplayInfiniteScrollProps) => {
       setIsTransitioning(true);
       carouselRef.current!.style.transition = "transform 0.5s ease-in-out";
       carouselRef.current!.style.transform = `translateX(-${
-        100 / itemsToShow
+        100 / (itemsToShow + 0) // Considerando o item adicional
       }%)`;
 
       setTimeout(() => {
+        // Realoca o primeiro item para o final da lista e ajusta o estado
         setDisplayItems((prevItems) => [
           ...prevItems.slice(1),
-          prevItems[1], // Move o segundo item (originalmente o primeiro) para o final
+          items[
+            (items.indexOf(prevItems[prevItems.length - 1]) + 1) % items.length
+          ],
         ]);
         carouselRef.current!.style.transition = "none";
         carouselRef.current!.style.transform = "translateX(0)";
-        carouselRef.current!.style.width = `${
-          (displayItems.length / itemsToShow) * 100
-        }%`;
         setIsTransitioning(false);
       }, 500);
     }
@@ -74,20 +71,18 @@ const DisplayInfiniteScroll = ({ items }: DisplayInfiniteScrollProps) => {
       setIsTransitioning(true);
       carouselRef.current!.style.transition = "none";
       carouselRef.current!.style.transform = `translateX(-${
-        100 / itemsToShow
+        100 / (itemsToShow + 0) // Considerando o item adicional
       }%)`;
 
+      // Adiciona o último item ao início da lista
       setDisplayItems((prevItems) => [
-        prevItems[prevItems.length - 2], // Move o penúltimo item (originalmente o último) para o início
+        items[(items.indexOf(prevItems[0]) - 1 + items.length) % items.length],
         ...prevItems.slice(0, -1),
       ]);
 
       setTimeout(() => {
         carouselRef.current!.style.transition = "transform 0.5s ease-in-out";
         carouselRef.current!.style.transform = "translateX(0)";
-        carouselRef.current!.style.width = `${
-          (displayItems.length / itemsToShow) * 100
-        }%`;
         setIsTransitioning(false);
       }, 0);
     }
@@ -105,7 +100,7 @@ const DisplayInfiniteScroll = ({ items }: DisplayInfiniteScrollProps) => {
         style={{
           display: "flex",
           transform: "translateX(0)",
-          width: `${(displayItems.length / itemsToShow) * 100}%`,
+          width: `${(displayItems.length / (itemsToShow + 0)) * 100}%`, // Ajusta o width para considerar o item extra
         }}
       >
         {displayItems.map((item, index) => (
@@ -113,7 +108,7 @@ const DisplayInfiniteScroll = ({ items }: DisplayInfiniteScrollProps) => {
             key={index}
             className="carousel-item"
             style={{
-              flex: `0 0 ${100 / itemsToShow}%`,
+              flex: `0 0 ${100 / (itemsToShow + 0)}%`, // Ajusta o tamanho dos itens
             }}
           >
             <img src={item.url} alt={item.title} />

@@ -68,6 +68,9 @@ a {
 
 
 @media screen and (max-width: 400px) {
+  h2{
+    font-size: 1.1rem;
+  }
   ::-webkit-scrollbar{
     width: 6px;
   }

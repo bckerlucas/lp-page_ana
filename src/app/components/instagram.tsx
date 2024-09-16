@@ -1,6 +1,6 @@
 "use client";
-import DisplayInfiniteScroll from "./display-infinite-scroll";
 import { FaInstagram } from "react-icons/fa";
+import DisplayInfiniteScroll from "./display-infinite-scroll";
 
 const items = [
   {
@@ -9,17 +9,17 @@ const items = [
     description: "Descrição 1",
   },
   {
-    url: "/images/banner-site-mobile.png",
+    url: "/images/banner-site-mobile2.png",
     title: "Imagem 2",
     description: "Descrição 2",
   },
   {
-    url: "/images/banner-site-mobile.png",
+    url: "/images/banner-site-mobile3.png",
     title: "Imagem 3",
     description: "Descrição 3",
   },
   {
-    url: "/images/banner-site-mobile.png",
+    url: "/images/banner-site-mobile4.png",
     title: "Imagem 4",
     description: "Descrição 4",
   },
