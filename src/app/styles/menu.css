@@ -1,0 +1,173 @@
+/* Estilo do header fixo */
+header {
+  position: fixed;
+  width: 100%;
+  top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Transições para opacity e transform */
+  opacity: 1; /* Iniciar como visível */
+  transform: translateY(0);
+  z-index: 10;
+}
+
+/* Classe para ocultar o header */
+.hidden {
+  opacity: 0; /* Ocultar com transição de opacidade */
+  transform: translateY(-100%); /* Mover para fora da tela */
+}
+
+/* Classe para manter o header visível */
+.visible {
+  opacity: 1; /* Manter visível com opacidade total */
+  transform: translateY(0); /* Manter na posição original */
+}
+
+/* Estilo do nav dentro do header */
+nav {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  margin: 0 25px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color-primary);
+  padding: 15px;
+  border-radius: var(--border-radius); 
+  
+  background-color: rgba(0, 0, 0, 0.3); /* Cor de fundo com opacidade */
+  backdrop-filter: blur(6px); /* Adiciona um desfoque de 10 pixels */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Sombra do caixa */
+  scale: 1.05;
+
+  transition: all 0.3s ease;
+}
+
+/* Classe para aplicar o estilo ativo no nav quando o header está visível e scroll > 300px */
+header.visible nav.active {
+  background-color: rgba(0, 0, 0, 0.8); /* Cor de fundo com opacidade */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra do caixa */
+  backdrop-filter: blur(4px); /* Adiciona um desfoque de 10 pixels */
+  scale: 1;
+  margin: 0 15px;
+}
+  
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .nav-item{
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 5px 10px;
+    border-radius: 6px;
+
+  }
+  .nav-item:hover{
+    color: var(--text-detail-color);
+    font-weight: 700;
+  }
+  .menu-icon {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+  }
+  
+  @media (max-width: 600px) {
+    nav{
+      margin: 0 20px;
+      padding: 10px;
+
+    }
+    .nav-menu {
+      display: none;
+    }
+  
+    .menu-icon {
+      display: block;
+    }
+  
+    .nav-menu.open {
+      display: block;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 150px;
+      background-color: rgba(245, 245, 245, 0.9);
+      list-style: none;
+      padding: 10px;
+      margin: 0;
+      border-radius: var(--border-radius);
+      transform: translate(20px, 20px);
+    }
+  
+    .nav-item {
+      padding: 6px 30px;
+      color: var(--text-color-dark);
+      text-align: center;
+    }
+
+    .nav-item:not(:last-child) {
+      border-bottom: 1px solid #aaaaaa;
+    }
+
+  }
+  
+
+  
+  .nav-logo {
+    filter: invert(1);
+  }
+  
+
+/* From Uiverse.io by Madflows */ 
+.botao-agendar {
+  position: relative;
+  overflow: hidden;
+  height: 2.5rem;
+  padding: 0 1.5rem;
+  border-radius: 1.5rem;
+  background: #3d3a4e;
+  background-size: 400%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.botao-agendar:hover::before {
+  transform: scaleX(1);
+}
+
+.botao-agendar-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+    align-items: center;
+}
+
+.botao-agendar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(
+  82.3deg,
+
+  rgba(18, 140, 126, 1) 10.8%,  /* Verde Escuro do WhatsApp */
+  rgba(37, 211, 102, 1) 94.3% /* Verde Claro do WhatsApp */
+);
+  transition: all 0.35s;
+}

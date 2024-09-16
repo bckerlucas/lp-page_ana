@@ -1,0 +1,45 @@
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.carousel-content {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  justify-content: center;
+  padding: 20px 0;
+}
+.carousel-item {
+  margin: 0 10px;
+  text-align: center;
+}
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  border-radius: 8px;
+}
+.arrow-left,
+.arrow-right {
+  border: none;
+  cursor: pointer;
+  font-size: 35px; /* Ajuste se necessário */
+  color: var(--detail-color-rgba); /* Cor do ícone */
+  background-color: white; /* Fundo branco */
+  border-radius: 50%; /* Faz o fundo ser um círculo */
+  width: 50px; /* Largura do botão */
+  height: 50px; /* Altura do botão */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra opcional para destaque */
+}
+.arrow-left {
+  position: absolute;
+  left: 3%;
+}
+.arrow-right {
+  position: absolute;
+  right: 3%;
+}

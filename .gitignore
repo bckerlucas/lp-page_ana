@@ -34,3 +34,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Forçar inclusão dos diretórios
+!public/images/
+!src/app/components/
+!src/app/styles/
