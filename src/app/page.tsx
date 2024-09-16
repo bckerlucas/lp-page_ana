@@ -5,6 +5,7 @@ import Secao1 from "./components/section1";
 import Secao2 from "./components/section2";
 import LgpdPopup from "./components/LgpdPopup";
 import SectionInstagram from "./components/instagram";
+import SectionInstagram2 from "./components/infinite-display";
 
 export default function Home() {
   return (
@@ -12,7 +13,8 @@ export default function Home() {
       <Menu />
       <main>
         <Secao1 />
-        <SectionInstagram />
+        {/* <SectionInstagram /> */}
+        <SectionInstagram2 />
         <Secao2 />
       </main>
       <footer className={styles.footer}></footer>

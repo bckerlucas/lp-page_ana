@@ -1,0 +1,40 @@
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .carousel-item {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .arrow-left, .arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+  }
+  
+  .arrow-left {
+    left: 10px;
+  }
+  
+  .arrow-right {
+    right: 10px;
+  }
+  
