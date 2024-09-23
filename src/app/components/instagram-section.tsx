@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
 import Slider from "react-slick";
-import { FaArrowLeft, FaArrowRight, FaInstagram } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/Instagram-carrossel.css";
+import Image from "next/image";
 
 // Dados dos itens do carrossel
 const items = [
@@ -110,8 +111,13 @@ export default function SectionInstagram() {
       <Slider {...settings}>
         {items.map((item, index) => (
           <div key={index} className="carousel-item">
-            <a target="_blank" href={item.url2}>
-              <img src={item.url} alt={item.title} />
+            <a target="_blank" href={item.url2} rel="noopener noreferrer">
+              <Image
+                src={item.url}
+                alt={item.title}
+                width={500} // Defina a largura desejada
+                height={300} // Defina a altura desejada
+              />
               <h3>{item.title}</h3>
               {/* <p>{item.description}</p> */}
             </a>
