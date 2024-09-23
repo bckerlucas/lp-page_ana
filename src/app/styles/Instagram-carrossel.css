@@ -1,0 +1,102 @@
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: var(--text-color-dark);
+    background-color: var(--background-color-primary);
+  }
+
+  .carousel-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    text-align: center;
+    flex-wrap: nowrap;
+  }
+  
+  .carousel-title {
+    width: 100%;
+    font-size: 1.6rem; /* Aumentei um pouco a fonte para dar destaque */
+    font-weight: 700;
+    margin-bottom: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ter-color);
+  }
+  
+  .carousel-description {
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 5px; /* Espaçamento entre os itens */
+    text-align: center;
+    color: var(--text-color-primary);
+  }
+
+  .carousel-item {
+    padding: 20px;
+    text-align: center;
+  }
+  .carousel-item h3{
+    padding-top: 20px;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .carousel-item img:hover {
+    transform: scale(1.03);
+  }
+  
+  .arrow-left, .arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+  }
+  
+  .arrow-left {
+    left: 10px;
+  }
+  
+  .arrow-right {
+    right: 10px;
+  }
+
+
+
+.slick-slider {
+  div {
+      &:focus {
+          outline: 0;
+      }
+  }
+}
+
+.slick-slider {
+  a {
+      &:focus {
+          outline: 0;
+      }
+  }
+}

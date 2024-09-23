@@ -1,0 +1,112 @@
+.comment-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: var(--text-color-dark);
+    background-color: var(--background-color-primary);
+  }
+
+  .comment-carousel-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    text-align: center;
+    flex-wrap: nowrap;
+  }
+  
+  .comment-carousel-title {
+    width: 100%;
+    font-size: 1.6rem; /* Aumentei um pouco a fonte para dar destaque */
+    font-weight: 700;
+    margin-bottom: 10px; /* Espaçamento entre o título e a descrição */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ter-color);
+  }
+  
+  .comment-carousel-description {
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 5px; /* Espaçamento entre os itens */
+    text-align: center;
+    border: 2px solid var(----text-detail-color);
+    color: var(--text-color-primary);
+  }
+  
+  .instagram-handle {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    color: inherit; /* Garante que herde a cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+  }
+  
+  .instagram-icon {
+    margin-right: 8px;
+    font-size: 1.2rem; /* Ajuste no tamanho do ícone */
+    color: #E4405F; /* Cor oficial do Instagram */
+  }
+  
+  /* Efeito hover para o nome do Instagram */
+  .instagram-handle:hover {
+    color: #E4405F;
+    cursor: pointer;
+
+  }
+  
+  .instagram-icon:hover {
+    transform: scale(1.1); /* Efeito de zoom no ícone ao passar o mouse */
+    transition: transform 0.2s ease-in-out; /* Transição suave */
+  }
+  
+  .comment-carousel-item {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .comment-carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .arrow-left, .arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+  }
+  
+  .arrow-left {
+    left: 10px;
+  }
+  
+  .arrow-right {
+    right: 10px;
+  }
+  
+
+  .slick-slider {
+    div {
+        &:focus {
+            outline: 0;
+        }
+    }
+  }

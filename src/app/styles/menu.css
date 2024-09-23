@@ -2,7 +2,7 @@
 header {
   position: fixed;
   width: 100%;
-  top: 10px;
+  top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@ header {
   z-index: 10;
 }
 
-/* Classe para ocultar o header */
+
 .hidden {
   opacity: 0; /* Ocultar com transição de opacidade */
   transform: translateY(-100%); /* Mover para fora da tela */
@@ -27,31 +27,31 @@ header {
 /* Estilo do nav dentro do header */
 nav {
   width: 100%;
-  max-width: 800px;
+  max-width: 720px;
   display: flex;
-  margin: 0 25px;
+  margin: 0 40px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: var(--text-color-primary);
+  color: var(--sec-color) ;
   padding: 15px;
   border-radius: var(--border-radius); 
-  
-  background-color: rgba(0, 0, 0, 0.3); /* Cor de fundo com opacidade */
-  backdrop-filter: blur(6px); /* Adiciona um desfoque de 10 pixels */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Sombra do caixa */
-  scale: 1.05;
-
+  background-color: var(--ter-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra do caixa */
+  scale: 1.08;
   transition: all 0.3s ease;
 }
-
+nav:not(.active) {
+  margin: 0 40px;/* Estilo para o nav quando não está ativo */
+}
 /* Classe para aplicar o estilo ativo no nav quando o header está visível e scroll > 300px */
 header.visible nav.active {
   background-color: rgba(0, 0, 0, 0.8); /* Cor de fundo com opacidade */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra do caixa */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra do caixa */
   backdrop-filter: blur(4px); /* Adiciona um desfoque de 10 pixels */
   scale: 1;
-  margin: 0 15px;
+  margin: 0 20px;
+  color: var( --sec-color);
 }
   
   .nav-menu {
@@ -69,7 +69,6 @@ header.visible nav.active {
 
   }
   .nav-item:hover{
-    color: var(--text-detail-color);
     font-weight: 700;
   }
   .menu-icon {
@@ -79,10 +78,9 @@ header.visible nav.active {
     font-size: 24px;
   }
   
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     nav{
-      margin: 0 20px;
-      padding: 10px;
+      margin: 0;
 
     }
     .nav-menu {
@@ -133,14 +131,15 @@ header.visible nav.active {
   height: 2.5rem;
   padding: 0 1.5rem;
   border-radius: 1.5rem;
-  background: #3d3a4e;
+  background: var(--sec-color);
   background-size: 400%;
-  color: #fff;
+  color: var(--text-color-primary);
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
 }
+.botao-agendar:hover {color: var(--sec-color);}
 
 .botao-agendar:hover::before {
   transform: scaleX(1);

@@ -14,17 +14,14 @@ export default function Menu() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (
-        currentScrollY > lastScrollTop.current &&
-        lastScrollTop.current > 150
-      ) {
+      if (currentScrollY > lastScrollTop.current && currentScrollY >= 150) {
         setIsNavbarVisible(false); // Rolagem para baixo
-        if (currentScrollY > 50) {
+        if (currentScrollY >= 150) {
           setScrollPosition(true);
         }
       } else if (currentScrollY < lastScrollTop.current) {
         setIsNavbarVisible(true); // Rolagem para cima
-        if (currentScrollY < 50) {
+        if (currentScrollY <= 150) {
           setScrollPosition(false);
         }
       }
@@ -47,10 +44,7 @@ export default function Menu() {
           <FaBars />
         </button>
 
-        <Link
-          href="#Section1"
-          style={{ display: "flex", alignItems: "center" }}
-        >
+        <Link href="#home" style={{ display: "flex", alignItems: "center" }}>
           <Image
             className="nav-logo"
             src="https://nextjs.org/icons/next.svg"
@@ -63,16 +57,19 @@ export default function Menu() {
 
         <ul className={`nav-menu ${menuOpen ? "open" : ""}`}>
           <li className="nav-item">
-            <a href="#Section2">Seção 1</a>
+            <a href="#sobre">Sobre</a>
           </li>
           <li className="nav-item">
-            <a href="/">Seção 2</a>
+            <a href="#comments">Feedbacks</a>
           </li>
           <li className="nav-item">
-            <a href="/">Seção 3</a>
+            <a href="#duvidas">Dúvidas</a>
           </li>
           <li className="nav-item">
-            <a href="/">Contato</a>
+            <a href="#instagram">Posts</a>
+          </li>
+          <li className="nav-item">
+            <a href="#footer">Contato</a>
           </li>
         </ul>
         <a
@@ -85,7 +82,6 @@ export default function Menu() {
             <FaWhatsapp
               style={{
                 marginRight: "8px",
-                color: "lightgreen",
                 width: "20px",
                 height: "20px",
               }}

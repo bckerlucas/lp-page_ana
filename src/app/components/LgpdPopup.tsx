@@ -25,18 +25,25 @@ export default function LgpdPopup() {
   if (!isVisible) return null;
 
   return (
-    <div className="popup">
+    <div className="popup-lgpd">
       <div className="content">
         <h2>Política de Privacidade</h2>
         <p>
           Utilizamos cookies e outras tecnologias semelhantes para melhorar a
           sua experiência em nosso site. Ao continuar navegando, você concorda
-          com a nossa <a href="/privacy-policy">política de privacidade</a>.
+          com a nossa{" "}
+          <a
+            style={{ color: "var(--text-detail-color)" }}
+            href="/privacy-policy"
+          >
+            política de privacidade
+          </a>
+          .
         </p>
-        <button className="button-lgpd" onClick={handleAccept}>
-          Aceitar
-        </button>
       </div>
+      <button className="button-lgpd" onClick={handleAccept}>
+        Aceitar
+      </button>
     </div>
   );
 }
